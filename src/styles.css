@@ -10,10 +10,9 @@ button {
 }
 
 body {
-  background-color: #111927;
-  background-image:
-    radial-gradient(at 47% 33%, hsl(162.00, 77%, 40%) 0, transparent 59%),
-    radial-gradient(at 82% 65%, hsl(218.00, 39%, 11%) 0, transparent 55%);
+  background-image: url('https://images.unsplash.com/photo-1519681393784-d120267933ba');
+  background-position: center;
+  background-size: cover;
 }
 
 .glass {
@@ -54,7 +53,7 @@ main {
   }
 
   input {
-    background-color: #111927;
+    background-color: #1f2a37;
     color: white;
     border: 1px solid #4b5663;
     border-radius: 4px;
@@ -66,15 +65,15 @@ main {
   }
 
   input:focus {
-    border-color: #2ea44f;
+    border-color: palevioletred;
     box-shadow: 0, inset 0 0 2px hsla(0, 0%, 100%, .95);
     outline: transparent;
   }
 
   button {
-    background-color: #2ea44f;
+    background-color: palevioletred;
     background-image: linear-gradient(180deg, hsla(0, 0%, 100%, .15), hsla(0, 0%, 100%, 0));
-    border: 1px solid #2ea44f;
+    border: 1px solid palevioletred;
     border-radius: 4px;
     cursor: pointer;
     font-size: 1rem;
@@ -87,8 +86,7 @@ main {
   }
 
   button:hover {
-    background-color: #289045;
-    border-color: #289045;
+    background-image: none;
   }
 }
 
@@ -162,4 +160,12 @@ main {
       }
     }
   }
+}
+
+hr {
+  display: block;
+  height: 1px;
+  border: 0;
+  border-top: 1px solid hsla(0, 0%, 100%, .1);
+  width: 90%;
 }

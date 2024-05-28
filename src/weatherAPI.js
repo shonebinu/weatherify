@@ -28,7 +28,7 @@ const WeatherAPI = (() => {
 		return fetchData(CURRENT_WEATHER);
 	}
 
-	function getForeCastWeather(query, days = 2) {
+	function getForeCastWeather(query, days = 1) {
 		const FORECASE_WEATHER = `${BASE_URL}forecast.json?key=${API_KEY}&q=${query}&days=${days}`;
 		return fetchData(FORECASE_WEATHER);
 	}
