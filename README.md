@@ -1,2 +1,2 @@
-# Webpack Template
+# Weatherify
 by Shone Binu.
