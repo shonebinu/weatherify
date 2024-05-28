@@ -10,9 +10,10 @@ button {
 }
 
 body {
-  background-image: url("https://images.unsplash.com/photo-1625558298116-38f0173a522c?q=80&w=1770&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D");
-  background-position: center;
-  background-size: cover;
+  background-color: #111927;
+  background-image:
+    radial-gradient(at 47% 33%, hsl(162.00, 77%, 40%) 0, transparent 59%),
+    radial-gradient(at 82% 65%, hsl(218.00, 39%, 11%) 0, transparent 55%);
 }
 
 .glass {
@@ -88,5 +89,77 @@ main {
   button:hover {
     background-color: #289045;
     border-color: #289045;
+  }
+}
+
+
+.main-container {
+  padding: 1.5rem;
+  padding-right: 2.5rem;
+
+  .today-highlight {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    justify-content: space-between;
+
+    div:has(>img) {
+      display: flex;
+    }
+
+    img {
+      align-self: flex-start;
+      height: 4rem;
+    }
+
+    div:has(>.temp, >.feels-like) {
+      display: flex;
+    }
+
+    .temp {
+      font-weight: 500;
+      font-size: 4rem;
+      margin: 0;
+    }
+
+    .feels-like {
+      align-self: flex-end;
+      padding-left: 10px;
+      color: #9ca3af;
+    }
+
+    .brief {
+      color: #9ca3af;
+      margin-top: 0;
+    }
+
+    div:has(>.min, >.max) {
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+
+
+      svg {
+        width: 2rem;
+        height: 2rem;
+      }
+
+      >div {
+        display: flex;
+        align-items: center;
+        gap: .5rem;
+
+        p:first-child {
+          margin: 0;
+          color: #9ca3af;
+        }
+
+        p:last-child {
+          margin: 0;
+          font-size: 1.4rem;
+          font-weight: 500;
+        }
+      }
+    }
   }
 }
