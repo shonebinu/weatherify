@@ -1,4 +1,26 @@
-@import url('https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap');
+@font-face {
+  font-family: 'Rubik';
+  src: url('./assets/fonts/rubik-regular-webfont.woff2') format('woff2'),
+    url('./assets/fonts/rubik-regular-webfont.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Rubik';
+  src: url('./assets/fonts/rubik-medium-webfont.woff2') format('woff2'),
+    url('./assets/fonts/rubik-medium-webfont.woff') format('woff');
+  font-weight: 500;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Rubik';
+  src: url('./assets/fonts/rubik-bold-webfont.woff2') format('woff2'),
+    url('./assets/fonts/rubik-bold-webfont.woff') format('woff');
+  font-weight: bold;
+  font-style: normal;
+}
 
 * {
   box-sizing: border-box;
@@ -10,7 +32,7 @@ button {
 }
 
 body {
-  background-image: url('https://images.unsplash.com/photo-1519681393784-d120267933ba');
+  background-image: url('./assets/images/background.webp');
   background-position: center;
   background-size: cover;
 }
@@ -160,6 +182,33 @@ main {
       }
     }
   }
+
+  .today-details {
+    display: flex;
+    justify-content: space-around;
+
+    >div {
+      display: flex;
+      gap: .5rem;
+
+      svg {
+        width: 1.5rem;
+        fill: white;
+      }
+
+      p {
+        margin: 5px;
+      }
+
+      p:first-child {
+        color: #9ca3af;
+      }
+
+      p:last-child {
+        font-size: 1.1rem;
+      }
+    }
+  }
 }
 
 hr {
@@ -167,5 +216,5 @@ hr {
   height: 1px;
   border: 0;
   border-top: 1px solid hsla(0, 0%, 100%, .1);
-  width: 90%;
+  margin: 1rem;
 }

@@ -23,11 +23,6 @@ const WeatherAPI = (() => {
 		return fetchData(IP_LOOKUP);
 	}
 
-	function getCurrentWeather(query) {
-		const CURRENT_WEATHER = `${BASE_URL}current.json?key=${API_KEY}&q=${query}`;
-		return fetchData(CURRENT_WEATHER);
-	}
-
 	function getForeCastWeather(query, days = 1) {
 		const FORECASE_WEATHER = `${BASE_URL}forecast.json?key=${API_KEY}&q=${query}&days=${days}`;
 		return fetchData(FORECASE_WEATHER);
@@ -45,7 +40,6 @@ const WeatherAPI = (() => {
 
 	return {
 		getIP,
-		getCurrentWeather,
 		getForeCastWeather,
 		getHistoryWeather,
 	};
