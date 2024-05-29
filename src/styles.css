@@ -46,6 +46,14 @@ body {
   padding: 1rem;
 }
 
+hr {
+  display: block;
+  height: 1px;
+  border: 0;
+  border-top: 1px solid hsla(0, 0%, 100%, .1);
+  margin: 1rem;
+}
+
 body {
   min-height: 100vh;
   margin: 0;
@@ -58,7 +66,7 @@ body {
 }
 
 main {
-  width: 60%;
+  width: max(60%, 750px);
   padding: 1rem;
   display: flex;
   flex-direction: column;
@@ -211,10 +219,104 @@ main {
   }
 }
 
-hr {
-  display: block;
-  height: 1px;
-  border: 0;
-  border-top: 1px solid hsla(0, 0%, 100%, .1);
-  margin: 1rem;
+.hourly {
+  display: flex;
+  justify-content: space-around;
+
+  .hour {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+
+    img {
+      height: 48px;
+    }
+
+    p {
+      margin: 0;
+    }
+
+    p:first-child {
+      font-weight: 500;
+    }
+
+    p:last-child {
+      color: #9ca3af;
+      font-size: .95rem;
+    }
+  }
+
+  .hour:not(:first-child)::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: calc(-50% - 1px);
+    width: 1px;
+    background-color: hsla(0, 0%, 100%, .1);
+    margin: auto 0;
+  }
+}
+
+.week {
+  display: flex;
+  gap: 1rem;
+
+  >div {
+    flex: 1;
+  }
+
+  .day {
+
+    >div:first-child {
+      display: flex;
+      gap: .3rem;
+
+      img {
+        height: 50px;
+      }
+
+      .temp {
+        font-weight: 500;
+        font-size: 2rem;
+        margin: 0;
+      }
+
+      .brief {
+        color: #9ca3af;
+        font-size: .95rem;
+        margin: 0;
+      }
+    }
+
+    .date {
+      padding-left: 1rem;
+    }
+  }
+
+  .extra-info {
+    display: flex;
+    justify-content: space-around;
+    padding-right: 1rem;
+
+    svg {
+      fill: white;
+      width: 1.5rem;
+    }
+
+    >div {
+      display: flex;
+      gap: .3rem;
+
+      p:first-child {
+        color: #9ca3af;
+        font-size: .95rem;
+      }
+
+      p {
+        margin: 5px;
+      }
+    }
+  }
 }
