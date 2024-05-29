@@ -4,6 +4,7 @@ import WeatherAPI from "./weatherAPI";
 
 const unit = document.querySelector(".unit");
 const location = document.querySelector(".location");
+const loadingElement = document.querySelector(".loading");
 
 if (!localStorage.getItem("location")) {
 	const ipData = await WeatherAPI.getIP();
@@ -25,6 +26,7 @@ unit.addEventListener("click", () => {
 
 location.querySelector("button").addEventListener("click", async () => {
 	const locationInput = document.querySelector(".location > input").value;
+	loadingElement.style.display = "flex";
 	const trueLocation = await WeatherAPI.getForeCastWeather(locationInput);
 	if (trueLocation.location) {
 		localStorage.setItem(
@@ -78,6 +80,10 @@ async function updateUI() {
 		],
 		isCelsius,
 	);
+
+	setTimeout(() => {
+		loadingElement.style.display = "none"; // Hide the loading spinner
+	}, 300);
 }
 
 function updateTopBar(location, celsius) {
