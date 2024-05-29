@@ -66,7 +66,7 @@ body {
 }
 
 main {
-  width: max(60%, 750px);
+  width: max(60%, 1000px);
   padding: 1rem;
   display: flex;
   flex-direction: column;
@@ -76,6 +76,8 @@ main {
 .top-bar {
   display: flex;
   justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 1rem;
 
   input,
   button {
@@ -87,7 +89,7 @@ main {
     color: white;
     border: 1px solid #4b5663;
     border-radius: 4px;
-    box-shadow: 0;
+    box-shadow: none;
     font-size: 1rem;
     font-weight: 400;
     line-height: 1.5;
@@ -96,7 +98,7 @@ main {
 
   input:focus {
     border-color: palevioletred;
-    box-shadow: 0, inset 0 0 2px hsla(0, 0%, 100%, .95);
+    box-shadow: 0 0 0, inset 0 0 2px hsla(0, 0%, 100%, .95);
     outline: transparent;
   }
 
@@ -130,6 +132,7 @@ main {
     align-items: center;
     gap: 1rem;
     justify-content: space-between;
+    flex-wrap: wrap;
 
     div:has(>img) {
       display: flex;
@@ -192,8 +195,9 @@ main {
   }
 
   .today-details {
-    display: flex;
-    justify-content: space-around;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    justify-items: center;
 
     >div {
       display: flex;
@@ -225,8 +229,10 @@ main {
   text-align: center;
 
   .hour {
-    &:not(&:first-child) {
-      border-left: 1px solid hsla(0, 0%, 100%, .1);
+    border-left: 1px solid hsla(0, 0%, 100%, .1);
+
+    &:first-child {
+      border-left: none;
     }
 
     img {
@@ -250,6 +256,7 @@ main {
 
 .week {
   display: flex;
+  flex-wrap: wrap;
   gap: 1rem;
 
   >div {
@@ -285,9 +292,20 @@ main {
   }
 
   .extra-info {
-    display: flex;
-    justify-content: space-around;
-    padding-right: 1rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    padding-left: .5rem;
+    justify-content: space-between;
+
+    >div:nth-child(-n + 2) {
+      border-bottom: 1px solid hsla(0, 0%, 100%, .1);
+      padding-bottom: .5rem;
+    }
+
+    >div:nth-child(n + 3) {
+      padding-top: .5rem;
+    }
 
     svg {
       fill: white;
@@ -307,6 +325,7 @@ main {
         margin: 5px;
       }
     }
+
   }
 }
 
@@ -339,5 +358,72 @@ main {
 
   100% {
     transform: rotate(360deg);
+  }
+}
+
+
+
+
+@media only screen and (max-width: 1000px) {
+  main {
+    width: 90%;
+  }
+}
+
+
+@media only screen and (max-width: 768px) {
+  main {
+    width: 100%;
+    padding: .5rem;
+  }
+
+  .location {
+    display: flex;
+    gap: .3rem;
+    width: 100%;
+
+    input {
+      width: 100%;
+    }
+  }
+
+  .hourly {
+    grid-template-columns: repeat(3, 1fr);
+
+    .hour:nth-child(4) {
+      border-left: none;
+    }
+
+    .hour {
+      padding-left: .5rem;
+      padding-right: .5rem;
+    }
+
+    .hour:first-child,
+    .hour:nth-child(4) {
+      padding-left: 0;
+    }
+
+    .hour:last-child,
+    .hour:nth-child(3) {
+      padding-right: 0;
+    }
+
+    .hour:nth-child(n - 4) {
+      padding-bottom: 1rem;
+    }
+
+    .hour:nth-child(n + 4) {
+      border-top: 1px solid hsla(0, 0%, 100%, .1);
+      padding-top: 1rem;
+    }
+  }
+
+
+  .main-container {
+    .today-details {
+      grid-template-columns: repeat(2, 1fr);
+      justify-items: start;
+    }
   }
 }

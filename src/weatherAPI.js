@@ -1,5 +1,5 @@
 const WeatherAPI = (() => {
-	const BASE_URL = "http://api.weatherapi.com/v1/";
+	const BASE_URL = "https://api.weatherapi.com/v1/";
 	const API_KEY = "3d9c4db84ef34bb7aba142125242605";
 
 	async function fetchData(url) {
