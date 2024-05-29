@@ -427,3 +427,51 @@ main {
     }
   }
 }
+
+
+.main-container {
+  z-index: -1;
+}
+
+.location {
+  display: flex;
+  gap: .3rem;
+
+  .input-holder {
+    flex: 1;
+    position: relative;
+
+    .auto-complete {
+      position: absolute;
+      width: 100%;
+      background: #1f2a37;
+      border-radius: 3px;
+      overflow: hidden;
+      cursor: pointer;
+
+      >div {
+        border-bottom: 1px solid hsla(0, 0%, 100%, .1);
+        padding: .8rem 1rem;
+      }
+
+      >div:last-child {
+        border-bottom: none;
+      }
+
+      >div:hover {
+        background: #9ca3af;
+      }
+
+      p:first-child {
+        font-weight: 500;
+        margin: 0;
+      }
+
+      p:last-child {
+        font-size: .9rem;
+        margin: 0;
+        margin-top: 5px;
+      }
+    }
+  }
+}

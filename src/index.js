@@ -2,9 +2,12 @@ import "./styles.css";
 import { parseISO, format } from "date-fns";
 import WeatherAPI from "./weatherAPI";
 
+let debounceTimer;
 const unit = document.querySelector(".unit");
 const location = document.querySelector(".location");
+const locationInput = location.querySelector("input");
 const loadingElement = document.querySelector(".loading");
+const autoComplete = document.querySelector(".auto-complete");
 
 if (!localStorage.getItem("location")) {
 	const ipData = await WeatherAPI.getIP();
@@ -25,24 +28,66 @@ unit.addEventListener("click", () => {
 });
 
 location.querySelector("button").addEventListener("click", async () => {
-	const locationInput = document.querySelector(".location > input").value;
 	loadingElement.style.display = "flex";
-	const trueLocation = await WeatherAPI.getForeCastWeather(locationInput);
+	const trueLocation = await WeatherAPI.getForeCastWeather(locationInput.value);
 	if (trueLocation.location) {
 		localStorage.setItem(
 			"location",
 			`${trueLocation.location.name}, ${trueLocation.location.region}`,
 		);
 	}
+	autoComplete.innerHTML = "";
 	updateUI();
 });
 
-location.querySelector("input").addEventListener("keypress", (e) => {
-	if (e.key === "Enter") {
-		e.preventDefault();
-		location.querySelector("button").click();
-	}
+location.querySelector("input").addEventListener("keydown", (e) => {
+	clearTimeout(debounceTimer);
+
+	debounceTimer = setTimeout(() => {
+		if (e.key === "Enter") {
+			e.preventDefault();
+			location.querySelector("button").click();
+		}
+
+		updateAutosuggestions();
+	}, 300);
 });
+
+async function updateAutosuggestions() {
+	const value = locationInput.value;
+
+	autoComplete.innerHTML = "";
+
+	if (!value) {
+		return;
+	}
+
+	const locationSuggestions = await WeatherAPI.getLocations(value);
+
+	if (locationSuggestions.length > 3) {
+		locationSuggestions.splice(3);
+	}
+
+	for (const location of locationSuggestions) {
+		autoComplete.innerHTML += `
+			<div>
+				<p>${location.name}</p>
+				<p>${location.region}, ${location.country}</p>
+			</div>
+		`;
+	}
+
+	for (const elem of autoComplete.querySelectorAll("div")) {
+		elem.addEventListener("click", async () => {
+			const locationName = elem.querySelector("p:first-child").textContent;
+			const region = elem
+				.querySelector("p:last-child")
+				.textContent.split(",")[0];
+			locationInput.value = `${locationName}, ${region}`;
+			location.querySelector("button").click();
+		});
+	}
+}
 
 function formatDate(dateString) {
 	const date = parseISO(dateString);
@@ -89,7 +134,6 @@ async function updateUI() {
 function updateTopBar(location, celsius) {
 	const section = document.querySelector(".top-bar");
 	const unitSpan = section.querySelector(".unit > span");
-	const locationInput = section.querySelector(".location > input");
 
 	unitSpan.textContent = celsius ? "C" : "F";
 	locationInput.value = location;
