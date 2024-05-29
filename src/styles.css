@@ -372,6 +372,10 @@ main {
 
 
 @media only screen and (max-width: 768px) {
+  body {
+    background: url('./assets/images/phone_background.webp')
+  }
+
   main {
     width: 100%;
     padding: .5rem;
