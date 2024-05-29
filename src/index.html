@@ -11,10 +11,10 @@
   <main>
     <section class="glass top-bar">
       <div>
-        <button>°C</button>
+        <button class="unit">°<span></span></button>
       </div>
-      <div>
-        <input type="text" placeholder="Search location" value="Kochi, India">
+      <div class="location">
+        <input type="text" placeholder="Search location">
         <button>Search</button>
       </div>
     </section>
@@ -22,14 +22,14 @@
     <section class="glass main-container">
       <div class="today-highlight">
         <div>
-          <img src="//cdn.weatherapi.com/weather/64x64/day/296.png" alt="">
+          <img src="" alt="" class="state">
           <div>
             <div>
-              <p class="temp">21°</p>
-              <p class="feels-like">Feels like 23°</p>
+              <p class="temp"><span></span>°</p>
+              <p class="feels-like">Feels like <span>23</span>°</p>
             </div>
             <p class="brief">Mostly Clear</p>
-            <p><strong>Tuesday,</strong> 28 May 2024</p>
+            <p class="date"></p>
           </div>
         </div>
         <div>
@@ -41,7 +41,7 @@
             </svg>
             <div>
               <p>Min</p>
-              <p>15.1°</p>
+              <p><span class="min-temp"></span>°</p>
             </div>
           </div>
 
@@ -53,7 +53,7 @@
             </svg>
             <div>
               <p>Max</p>
-              <p>26.4°</p>
+              <p><span class="max-temp"></span>°</p>
             </div>
           </div>
         </div>
@@ -67,7 +67,7 @@
           </svg>
           <div>
             <p>Chance of rain</p>
-            <p>97%</p>
+            <p><span class="rain-chance"></span>%</p>
           </div>
         </div>
         <div>
@@ -77,7 +77,7 @@
           </svg>
           <div>
             <p>Humidity</p>
-            <p>84%</p>
+            <p><span class="humidity"></span>%</p>
           </div>
         </div>
         <div>
@@ -87,7 +87,7 @@
           </svg>
           <div>
             <p>Sunrise</p>
-            <p>06:03 AM</p>
+            <p class="sunrise"></p>
           </div>
         </div>
         <div>
@@ -97,56 +97,26 @@
           </svg>
           <div>
             <p>Sunset</p>
-            <p>06:42 PM</p>
+            <p class="sunset"></p>
           </div>
         </div>
       </div>
     </section>
 
     <section class="hourly glass">
-      <div class="hour">
-        <p>7 AM</p>
-        <img src="//cdn.weatherapi.com/weather/64x64/day/296.png" alt="">
-        <p>Mostly Clear</p>
-      </div>
-      <div class="hour">
-        <p>7 AM</p>
-        <img src="//cdn.weatherapi.com/weather/64x64/day/296.png" alt="">
-        <p>Mostly Clear</p>
-      </div>
-      <div class="hour">
-        <p>7 AM</p>
-        <img src="//cdn.weatherapi.com/weather/64x64/day/296.png" alt="">
-        <p>Mostly Clear</p>
-      </div>
-      <div class="hour">
-        <p>7 AM</p>
-        <img src="//cdn.weatherapi.com/weather/64x64/day/296.png" alt="">
-        <p>Mostly Clear</p>
-      </div>
-      <div class="hour">
-        <p>7 AM</p>
-        <img src="//cdn.weatherapi.com/weather/64x64/day/296.png" alt="">
-        <p>Mostly Clear</p>
-      </div>
-      <div class="hour">
-        <p>7 AM</p>
-        <img src="//cdn.weatherapi.com/weather/64x64/day/296.png" alt="">
-        <p>Mostly Clear</p>
-      </div>
     </section>
 
     <section class="week">
-      <div class="glass">
+      <div class="glass daily">
         <div class="day">
           <div>
-            <img src="//cdn.weatherapi.com/weather/64x64/day/296.png" alt="">
+            <img src="" alt="">
             <div>
-              <p class="temp">21° </p>
-              <p class="brief">Mostly Clear</p>
+              <p class="temp"><span></span>°</p>
+              <p class="brief"></p>
             </div>
           </div>
-          <p class="date"><strong>Tuesday,</strong> 28 May 2024</p>
+          <p class="date"></p>
         </div>
         <hr>
         <div class="extra-info">
@@ -157,7 +127,7 @@
             </svg>
             <div>
               <p>Chance of rain</p>
-              <p>97%</p>
+              <p><span class="rain-chance"></span>%</p>
             </div>
           </div>
           <div>
@@ -167,7 +137,7 @@
             </svg>
             <div>
               <p>Humidity</p>
-              <p>84%</p>
+              <p><span class="humidity"></span>%</p>
             </div>
           </div>
         </div>
@@ -182,7 +152,7 @@
             </svg>
             <div>
               <p>Sunrise</p>
-              <p>06:03 AM</p>
+              <p class="sunrise"></p>
             </div>
           </div>
           <div>
@@ -192,23 +162,23 @@
             </svg>
             <div>
               <p>Sunset</p>
-              <p>06:42 PM</p>
+              <p class="sunset"></p>
             </div>
           </div>
         </div>
       </div>
 
 
-      <div class="glass">
+      <div class="glass daily">
         <div class="day">
           <div>
-            <img src="//cdn.weatherapi.com/weather/64x64/day/296.png" alt="">
+            <img src="" alt="">
             <div>
-              <p class="temp">21° </p>
-              <p class="brief">Mostly Clear</p>
+              <p class="temp"><span></span>°</p>
+              <p class="brief"></p>
             </div>
           </div>
-          <p class="date"><strong>Tuesday,</strong> 28 May 2024</p>
+          <p class="date"></p>
         </div>
         <hr>
         <div class="extra-info">
@@ -219,7 +189,7 @@
             </svg>
             <div>
               <p>Chance of rain</p>
-              <p>97%</p>
+              <p><span class="rain-chance"></span>%</p>
             </div>
           </div>
           <div>
@@ -229,7 +199,7 @@
             </svg>
             <div>
               <p>Humidity</p>
-              <p>84%</p>
+              <p><span class="humidity"></span>%</p>
             </div>
           </div>
         </div>
@@ -244,7 +214,7 @@
             </svg>
             <div>
               <p>Sunrise</p>
-              <p>06:03 AM</p>
+              <p class="sunrise"></p>
             </div>
           </div>
           <div>
@@ -254,21 +224,22 @@
             </svg>
             <div>
               <p>Sunset</p>
-              <p>06:42 PM</p>
+              <p class="sunset"></p>
             </div>
           </div>
         </div>
       </div>
-      <div class="glass">
+
+      <div class="glass daily">
         <div class="day">
           <div>
-            <img src="//cdn.weatherapi.com/weather/64x64/day/296.png" alt="">
+            <img src="" alt="">
             <div>
-              <p class="temp">21° </p>
-              <p class="brief">Mostly Clear</p>
+              <p class="temp"><span></span>°</p>
+              <p class="brief"></p>
             </div>
           </div>
-          <p class="date"><strong>Tuesday,</strong> 28 May 2024</p>
+          <p class="date"></p>
         </div>
         <hr>
         <div class="extra-info">
@@ -279,7 +250,7 @@
             </svg>
             <div>
               <p>Chance of rain</p>
-              <p>97%</p>
+              <p><span class="rain-chance"></span>%</p>
             </div>
           </div>
           <div>
@@ -289,7 +260,7 @@
             </svg>
             <div>
               <p>Humidity</p>
-              <p>84%</p>
+              <p><span class="humidity"></span>%</p>
             </div>
           </div>
         </div>
@@ -304,7 +275,7 @@
             </svg>
             <div>
               <p>Sunrise</p>
-              <p>06:03 AM</p>
+              <p class="sunrise"></p>
             </div>
           </div>
           <div>
@@ -314,11 +285,12 @@
             </svg>
             <div>
               <p>Sunset</p>
-              <p>06:42 PM</p>
+              <p class="sunset"></p>
             </div>
           </div>
         </div>
       </div>
+
     </section>
   </main>
 </body>

@@ -220,14 +220,14 @@ main {
 }
 
 .hourly {
-  display: flex;
-  justify-content: space-around;
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  text-align: center;
 
   .hour {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    position: relative;
+    &:not(&:first-child) {
+      border-left: 1px solid hsla(0, 0%, 100%, .1);
+    }
 
     img {
       height: 48px;
@@ -245,17 +245,6 @@ main {
       color: #9ca3af;
       font-size: .95rem;
     }
-  }
-
-  .hour:not(:first-child)::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    left: calc(-50% - 1px);
-    width: 1px;
-    background-color: hsla(0, 0%, 100%, .1);
-    margin: auto 0;
   }
 }
 
