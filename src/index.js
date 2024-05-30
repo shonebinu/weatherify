@@ -11,7 +11,7 @@ const autoComplete = document.querySelector(".auto-complete");
 
 if (!localStorage.getItem("location")) {
 	const ipData = await WeatherAPI.getIP();
-	const currLocation = `${ipData.region}, ${ipData.country_name}`;
+	const currLocation = `${ipData.city}, ${ipData.region}`;
 	ipData.region + localStorage.setItem("location", currLocation);
 }
 
@@ -128,6 +128,7 @@ async function updateUI() {
 
 	setTimeout(() => {
 		loadingElement.style.display = "none"; // Hide the loading spinner
+		autoComplete.innerHTML = "";
 	}, 300);
 }
 
